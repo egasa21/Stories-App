@@ -23,6 +23,12 @@ data class ListStoryItem(
     @field:SerializedName("createdAt")
     val createdAt: String,
 
+    @field:SerializedName("lon")
+    val lon: Double?,
+
+    @field:SerializedName("lat")
+    val lat: Double?,
+
     @field:SerializedName("photoUrl")
     val photoUrl: String,
 

@@ -61,6 +61,8 @@ class StoriesRemoteMediator (
                         createdAt = it.createdAt,
                         name = it.name,
                         description = it.description,
+                        lat = it.lat,
+                        lon = it.lon
                     )
                 }
                 val prevKey = if (page ==1 ) null else page -1

@@ -10,5 +10,7 @@ data class Stories (
     val name: String,
     val description: String,
     val photoUrl: String,
+    val lat: Double?,
+    val lon: Double?,
     val createdAt:String
 )

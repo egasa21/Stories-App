@@ -21,6 +21,7 @@ import com.lazzy.stories.databinding.ActivityMainBinding
 import com.lazzy.stories.tools.ViewModelFactory
 import com.lazzy.stories.ui.detail.DetailActivity
 import com.lazzy.stories.ui.login.LoginActivity
+import com.lazzy.stories.ui.maps.MapsActivity
 import com.lazzy.stories.ui.preference.UserPreference
 import com.lazzy.stories.ui.stories.CreateStoryActivity
 import kotlinx.coroutines.CoroutineScope
@@ -56,6 +57,12 @@ class MainActivity : AppCompatActivity() {
                             startActivity(intent)
                         }
                     }
+
+                    binding.fabMaps.setOnClickListener{ view ->
+                        if(view.id == R.id.fabMaps){
+                            MapsActivity.start(this@MainActivity)
+                        }
+                    }
                 }
             }
         }
@@ -68,10 +75,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val resultUpload = intent.getIntExtra(RESULT_UPLOAD, 0)
-        if(resultUpload == 1){
-            getAllStories()
-            intent.putExtra(RESULT_UPLOAD, 0)
+        if (intent != null) {
+            // Retrieve the extra, providing a default value of 0 if it's not present
+            val resultUpload = intent.getIntExtra(RESULT_UPLOAD, 0)
+
+            // Perform null check on intent and handle the resultUpload
+            if (resultUpload == 1) {
+                getAllStories()
+
+                // Set the extra back to 0 to avoid repeated processing
+                intent.putExtra(RESULT_UPLOAD, 0)
+            }
         }
     }
 

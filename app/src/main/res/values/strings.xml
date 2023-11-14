@@ -35,4 +35,6 @@
     <string name="error_failed_take_photo">Failed to take a photo</string>
     <string name="error_open_camera">Failed to open the camera</string>
     <string name="error_empty_name">name can\'t be empty</string>
+    <string name="location_switch">Add your location</string>
+    <string name="title_activity_gmaps">GMapsActivity</string>
 </resources>

@@ -20,6 +20,12 @@ data class DetailStoriesResponse(
 @Parcelize
 data class Story(
 
+    @field:SerializedName("lon")
+    val lon: Double,
+
+    @field:SerializedName("lat")
+    val lat: Double,
+
     @field:SerializedName("createdAt")
     val createdAt: String,
 

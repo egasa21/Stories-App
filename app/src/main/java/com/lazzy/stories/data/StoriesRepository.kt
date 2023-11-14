@@ -1,6 +1,7 @@
 package com.lazzy.stories.data
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.*
 import com.lazzy.stories.data.local.dao.StoriesRoomDatabase
@@ -25,5 +26,9 @@ class StoriesRepository (
                 database.storiesDao().getStories()
             }
         ).liveData
+    }
+
+    fun getStoriesLocation() : LiveData<List<ListStoryItem>>{
+        return database.storiesDao().getStoriesLocation().asLiveData()
     }
 }

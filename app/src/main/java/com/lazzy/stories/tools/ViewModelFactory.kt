@@ -7,6 +7,7 @@ import com.lazzy.stories.di.Injection
 import com.lazzy.stories.ui.detail.DetailViewModel
 import com.lazzy.stories.ui.home.MainViewModel
 import com.lazzy.stories.ui.login.LoginViewModel
+import com.lazzy.stories.ui.maps.MapsViewModel
 import com.lazzy.stories.ui.preference.UserPreference
 import com.lazzy.stories.ui.stories.CreateStoryViewModel
 
@@ -27,6 +28,9 @@ class ViewModelFactory(private val context: Context, private val userPreference:
             }
             modelClass.isAssignableFrom(CreateStoryViewModel::class.java) ->{
                 return CreateStoryViewModel(userPreference) as T
+            }
+            modelClass.isAssignableFrom(MapsViewModel::class.java) -> {
+                return MapsViewModel(Injection.provideRepository(context, userPreference)) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class:" + modelClass.name )
         }
